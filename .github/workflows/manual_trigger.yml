@@ -51,5 +51,5 @@ jobs:
 
     - name: Run backend tests
       run: |
-        python3 -m android/browserstack_sample.py
+        python3 -m python-appium-bs/android/browserstack_sample.py
       continue-on-error: false
