@@ -48,7 +48,10 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: install cached dependencies
       run: pip install -r requirements.txt
-
+    - name: Export Secrets
+      uses: oNaiPs/secrets-to-env-action@v1
+      with:
+        secrets: ${{ toJSON(secrets) }}
     - name: Run backend tests
       run: |
         ls -i

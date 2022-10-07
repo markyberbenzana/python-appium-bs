@@ -30,7 +30,7 @@ desired_cap = {
 # Initialize the remote Webdriver using BrowserStack remote URL
 # and desired capabilities defined above
 driver = webdriver.Remote(
-    command_executor="https://markivanberbenza_fr3iZ7:mBcRoGsR3aLpf2mG9B4o@hub-cloud.browserstack.com/wd/hub",
+    command_executor=f"https://{user_name}:{access_key}@hub-cloud.browserstack.com/wd/hub",
     desired_capabilities=desired_cap
 )
 
