@@ -1,31 +1,36 @@
+import os
+import time
+
 from appium import webdriver
 from appium.webdriver.common.mobileby import MobileBy
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import time
+from selenium.webdriver.support.ui import WebDriverWait
+
+user_name = os.environ.get('$BS_USER')
+access_key = os.environ.get('$BS_KEY')
 
 desired_cap = {
     # Set your access credentials
-    "browserstack.user" : "YOUR_USERNAME",
-    "browserstack.key" : "YOUR_ACCESS_KEY",
+    "browserstack.user": user_name,
+    "browserstack.key": access_key,
 
     # Set URL of the application under test
-    "app" : "bs://<app-id>",
+    "app": "bs://f1197b887f51f8c35b5e2f7f8847c388c3749973",
 
     # Specify device and os_version for testing
-    "device" : "Google Pixel 3",
-    "os_version" : "9.0",
-    
+    "device": "Google Pixel 3",
+    "os_version": "9.0",
+
     # Set other BrowserStack capabilities
-    "project" : "First Python project", 
-    "build" : "browserstack-build-1",
-    "name" : "first_test"
+    "project": "Second Python project",
+    "build": "browserstack-build-2",
+    "name": "second_test"
 }
 
 # Initialize the remote Webdriver using BrowserStack remote URL
 # and desired capabilities defined above
 driver = webdriver.Remote(
-    command_executor="http://hub-cloud.browserstack.com/wd/hub", 
+    command_executor="https://markivanberbenza_fr3iZ7:mBcRoGsR3aLpf2mG9B4o@hub-cloud.browserstack.com/wd/hub",
     desired_capabilities=desired_cap
 )
 
@@ -41,7 +46,7 @@ search_input = WebDriverWait(driver, 30).until(
 search_input.send_keys("BrowserStack")
 time.sleep(5)
 search_results = driver.find_elements_by_class_name("android.widget.TextView")
-assert(len(search_results) > 0)
+assert (len(search_results) > 0)
 
 # Invoke driver.quit() after the test is done to indicate that the test is completed.
 driver.quit()
