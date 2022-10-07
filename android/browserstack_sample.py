@@ -6,8 +6,8 @@ from appium.webdriver.common.mobileby import MobileBy
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-user_name = os.environ.get('$BS_USER')
-access_key = os.environ.get('$BS_KEY')
+user_name = os.environ.get('BS_USER')
+access_key = os.environ.get('BS_KEY')
 
 desired_cap = {
     # Set your access credentials

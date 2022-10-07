@@ -54,6 +54,5 @@ jobs:
         secrets: ${{ toJSON(secrets) }}
     - name: Run backend tests
       run: |
-        ls -i
         python android/browserstack_sample.py
       continue-on-error: false
